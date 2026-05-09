@@ -30,7 +30,7 @@ router.post('/', auth, esAdmin, upload.single('imagen'), async (req, res) => {
     const { nombre, descripcion, precio, duracion, categoriaId, colaboradorId, destacado } = req.body;
     const servicio = await Servicio.create({
       negocioId: req.usuario.negocioId,
-      categoriaId,
+      categoriaId: categoriaId || null,
       colaboradorId: colaboradorId || null,
       nombre,
       descripcion,
